@@ -1,5 +1,6 @@
 import os
 import csv
+from collections import Counter
 
 with open('C:/Users/damia/Desktop/UDEN201811DATA3/Week3/HW/Instructions/PyPoll/Resources/election_data.csv') as f:
     reader = csv.reader(f)
@@ -17,8 +18,8 @@ with open('C:/Users/damia/Desktop/UDEN201811DATA3/Week3/HW/Instructions/PyPoll/R
     li_totals = (candidate.count("Li"))
     otooley_totals = (candidate.count("O'Tooley"))
     
-    winner = candidate.count(max(candidate))
-#     winner = list(candidate.count(single_can(1)[2])
+    c = Counter(candidate)
+    winner = c.most_common(1)[0][0]
     
     print("Election Results")
     print("-------------------------")
